@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classificador de Nível de Herói</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Título do formulário -->
+  <h2>Classificador de Nível de Herói</h2>
+
+  <!-- Formulário para inserir a quantidade de experiência (XP) do herói -->
+  <form id="formulario">
+    <label for="xp">Insira a quantidade de experiência (XP) do herói:</label>
+    <input type="number" id="xp" name="xp" required>
+
+    <br>
+
+    <!-- Botão para acionar a função de classificação do herói -->
+    <button type="button" onclick="classificarHeroi()">Classificar Herói</button>
+  </form>
+
+  <!-- Local para exibir o resultado da classificação -->
+  <div id="resultado"></div>
+
+  <!-- Script JavaScript para a lógica de classificação -->
+  <script>
+    function classificarHeroi() {
+      // Obtendo a quantidade de experiência (XP) inserida pelo usuário
+     let xpDoHeroi = parseInt(document.getElementById('xp').value);
+
+      // Utilizando uma estrutura de decisão para determinar o nível do herói com base na XP
+      let nivelDoHeroi;
+
+      if (xpDoHeroi < 1000) {
+        nivelDoHeroi = "Ferro";
+      } else if (xpDoHeroi >= 1001 && xpDoHeroi <= 2000) {
+        nivelDoHeroi = "Bronze";
+      } else if (xpDoHeroi >= 2001 && xpDoHeroi <= 5000) {
+        nivelDoHeroi = "Prata";
+      } else if (xpDoHeroi >= 6001 && xpDoHeroi <= 7000) {
+        nivelDoHeroi = "Ouro";
+      } else if (xpDoHeroi >= 7001 && xpDoHeroi <= 8000) {
+        nivelDoHeroi = "Platina";
+      } else if (xpDoHeroi >= 8001 && xpDoHeroi <= 9000) {
+        nivelDoHeroi = "Ascendente";
+      } else if (xpDoHeroi >= 9001 && xpDoHeroi <= 10000) {
+        nivelDoHeroi = "Imortal";
+      } else {
+        nivelDoHeroi = "Radiante";
+      }
+
+      // Exibindo a mensagem final
+      let resultadoElement = document.getElementById('resultado');
+      resultadoElement.innerHTML = 'O Herói está no nível de ' + nivelDoHeroi;
+    }
+  </script>
+
+</body>
+</html>
